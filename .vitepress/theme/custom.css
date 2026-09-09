@@ -1,0 +1,146 @@
+/**
+ * NativeDev docs — design tokens
+ * Palette: deep slate + muted teal (systemd/terminal register, not neon)
+ * Type: IBM Plex Sans (UI/body) + IBM Plex Mono (code, prompts, brand mark)
+ */
+
+:root {
+  --nd-teal-1: #1f6f6b;
+  --nd-teal-2: #175653;
+  --nd-teal-soft: rgba(63, 167, 154, 0.14);
+  --nd-amber: #c98a3e;
+  --nd-slate-900: #0e1512;
+  --nd-slate-800: #101820;
+  --nd-slate-100: #f4f6f4;
+
+  --vp-font-family-base: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --vp-font-family-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --vp-c-brand-1: var(--nd-teal-1);
+  --vp-c-brand-2: var(--nd-teal-2);
+  --vp-c-brand-3: var(--nd-teal-2);
+  --vp-c-brand-soft: var(--nd-teal-soft);
+
+  --vp-c-bg: var(--nd-slate-100);
+  --vp-c-bg-soft: #eceeec;
+  --vp-c-bg-alt: #eceeec;
+  --vp-c-bg-elv: #ffffff;
+
+  --vp-button-brand-bg: var(--nd-teal-1);
+  --vp-button-brand-hover-bg: var(--nd-teal-2);
+  --vp-button-brand-active-bg: var(--nd-teal-2);
+}
+
+.dark {
+  --vp-c-brand-1: #4fbdb3;
+  --vp-c-brand-2: #3fa79a;
+  --vp-c-brand-3: #3fa79a;
+  --vp-c-brand-soft: rgba(79, 189, 179, 0.16);
+
+  --vp-c-bg: var(--nd-slate-900);
+  --vp-c-bg-soft: #131b17;
+  --vp-c-bg-alt: #0c1210;
+  --vp-c-bg-elv: #141d19;
+
+  --vp-button-brand-bg: #3fa79a;
+  --vp-button-brand-hover-bg: #4fbdb3;
+  --vp-button-brand-active-bg: #4fbdb3;
+}
+
+/* Headings carry slightly tighter tracking; Plex Sans has enough character
+   on its own without added letter-spacing gimmicks. */
+.vp-doc h1,
+.vp-doc h2,
+.vp-doc h3 {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.vp-doc h1 {
+  border-bottom: 1px solid var(--vp-c-divider);
+  padding-bottom: 0.5rem;
+}
+
+.vp-doc h2 {
+  border-top: 1px solid var(--vp-c-divider);
+  padding-top: 1.6rem;
+  margin-top: 2.4rem !important;
+}
+
+/* Nav bar: a quiet accent rule instead of a hard shadow line */
+.VPNav {
+  border-bottom: 1px solid var(--vp-c-divider);
+}
+
+.VPNavBarTitle .title {
+  font-family: var(--vp-font-family-mono);
+  font-weight: 600;
+  font-size: 16px;
+}
+
+/* Sidebar active item: left rule + brand text, no pill/background block */
+.VPSidebarItem.level-0 > .item > .link,
+.VPSidebarItem.level-1 > .item > .link {
+  border-radius: 0;
+}
+
+.VPSidebarItem .link.active .text,
+.VPSidebarItem .link .text.active {
+  color: var(--vp-c-brand-1);
+}
+
+.VPSidebarItem .is-active > .item {
+  border-left: 2px solid var(--vp-c-brand-1);
+  margin-left: -17px;
+  padding-left: 15px;
+}
+
+/* Code blocks: restrained radius + hairline border rather than heavy shadow */
+div[class*='language-'] {
+  border-radius: 6px;
+  border: 1px solid var(--vp-c-divider);
+}
+
+.vp-doc code {
+  font-size: 0.86em;
+}
+
+/* Inline links inside prose get the underline back for clarity, not just color */
+.vp-doc a:not(.header-anchor):not(.VPBadge) {
+  text-decoration: underline;
+  text-decoration-color: var(--vp-c-brand-soft);
+  text-underline-offset: 3px;
+}
+.vp-doc a:not(.header-anchor):not(.VPBadge):hover {
+  text-decoration-color: var(--vp-c-brand-1);
+}
+
+/* Home hero: replace the default blurred gradient blob with a quiet, solid glow
+   so the terminal mockup reads as the intentional focal point. */
+.VPHero .image-bg {
+  background: var(--vp-c-brand-soft);
+  filter: blur(56px);
+  opacity: 0.7;
+}
+
+.VPHero .image-container {
+  border-radius: 12px;
+}
+
+.VPHero .name {
+  font-family: var(--vp-font-family-mono);
+}
+
+.VPHero .text {
+  font-weight: 600;
+}
+
+/* Feature cards on the home page: hairline border, no drop shadow */
+.VPFeature {
+  border: 1px solid var(--vp-c-divider) !important;
+  box-shadow: none !important;
+  transition: border-color 0.15s ease;
+}
+.VPFeature:hover {
+  border-color: var(--vp-c-brand-1) !important;
+}
