@@ -5,12 +5,12 @@ export default defineConfig({
   description: 'Native Linux development environment manager for Debian and Ubuntu',
   lang: 'en-US',
 
-  // GitHub Pages project-page deployment: https://sayedsahin.github.io/nativedev/
+  // GitHub Pages project-page deployment: https://sayedsahin.github.io/nativedev-doc/
   // Change this if the repository name or deployment target is different.
-  base: '/nativedev/',
+  base: '/nativedev-doc/',
 
   head: [
-    ['link', { rel: 'icon', href: '/nativedev/images/favicon.svg', type: 'image/svg+xml' }],
+    ['link', { rel: 'icon', href: '/nativedev-doc/images/favicon.svg', type: 'image/svg+xml' }],
     ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
     ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }],
     ['link', { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap' }],
@@ -42,8 +42,8 @@ export default defineConfig({
       {
         text: 'Links',
         items: [
-          { text: 'Releases', link: 'https://github.com/sayedsahin/nativedev/releases' },
-          { text: 'Report an issue', link: 'https://github.com/sayedsahin/nativedev/issues' },
+          { text: 'Releases', link: 'https://github.com/sayedsahin/nativedev-doc/releases' },
+          { text: 'Report an issue', link: 'https://github.com/sayedsahin/nativedev-doc/issues' },
         ],
       },
     ],
@@ -87,11 +87,11 @@ export default defineConfig({
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/sayedsahin/nativedev' },
+      { icon: 'github', link: 'https://github.com/sayedsahin/nativedev-doc' },
     ],
 
     editLink: {
-      pattern: 'https://github.com/sayedsahin/nativedev/edit/main/docs/:path',
+      pattern: 'https://github.com/sayedsahin/nativedev-doc/edit/main/docs/:path',
       text: 'Edit this page on GitHub',
     },
 
