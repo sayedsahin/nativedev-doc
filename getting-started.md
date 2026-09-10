@@ -8,7 +8,7 @@ title: Getting Started
 
 NativeDev currently supports Debian and Ubuntu based distributions.
 
-Install the latest release package: [Download](https://github.com/sayedsahin/nativedev/releases/tag/v0.2.2)
+Install the latest release package: [Download](https://github.com/sayedsahin/nativedev/releases/tag/v0.3.0)
 
 ```bash
 sudo apt install ./nativedev_<version>_all.deb
