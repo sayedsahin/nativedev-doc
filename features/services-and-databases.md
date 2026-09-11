@@ -15,11 +15,18 @@ NativeDev's **Services & tools** page manages the native background services a t
 - Redis Server + `redis-cli`, tracked as one component (`redis-server` + `redis-tools`)
 - Memcached
 - Composer
-- mkcert
+- mkcert + `libnss3-tools` (`certutil`) for local CA/browser trust
 
 ![Services and Databases](/images/3.2-services-and-tools-redis-memcached-rabbitmq-composer-mkcert.webp)
 
 Every service that supports it gets start/stop/restart and enable/disable controls through systemd.
+
+
+## Local HTTPS tooling
+
+Installing **mkcert** from NativeDev also installs `libnss3-tools`, which provides `certutil`. NativeDev uses mkcert for the local CA and the `*.secure.<TLD>` certificate used by Local Development; `certutil` is required for the browser/NSS trust step.
+
+The certificate is not created per project. One wildcard certificate covers `project.secure.<TLD>` hostnames, while normal local HTTP continues to use `project.<TLD>`. See [Local development](local-development.md) for the URL model and trust flow.
 
 ## Database accounts and credentials
 

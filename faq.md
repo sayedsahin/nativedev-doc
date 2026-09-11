@@ -5,7 +5,7 @@ title: FAQ
 # FAQ
 
 **Is NativeDev a container/VM tool like Docker or Laravel Sail?**
-No. NativeDev deliberately does not bundle PHP, Nginx, a database engine, Redis, Node.js, containers, VMs, or a private server stack. It manages the native services your Linux distribution already provides. See [Architecture](architecture.md).
+No. NativeDev deliberately does not bundle PHP, Nginx, a database engine, Redis, Node.js, containers, VMs, or a private server stack. It manages the native services your Linux distribution already provides. See [Why NativeDev](why-nativedev.md) for the product rationale and [Architecture](architecture.md) for the technical design.
 
 **Does NativeDev replace my distro's PHP the moment I install it?**
 No. NativeDev detects and manages your existing System PHP without changing it. Multi-PHP (multiple side-by-side versions) is an explicit, one-way migration you opt into from the PHP page. See [PHP management](features/php.md).
@@ -21,6 +21,9 @@ No. Database data/accounts and your projects are never removed by application un
 
 **Why did uninstalling a PHP version get blocked?**
 Most likely a developer tool (phpMyAdmin/Adminer) is bound to that version, or APT's own package dependencies would remove one of those tools as a side effect. See [Troubleshooting](troubleshooting.md).
+
+**Why is HTTPS `project.secure.test` instead of `https://project.test`?**
+NativeDev keeps HTTP and HTTPS in separate local namespaces so one trusted wildcard certificate (`*.secure.test` by default) can cover all parked projects without regenerating the certificate every time a project is added or renamed. HTTP remains `project.test`; HTTPS is optional at `project.secure.test`. See [Local development](features/local-development.md).
 
 **Does NativeDev support Fedora/Arch?**
 Not yet. The current implemented backend targets Debian/Ubuntu families; the architecture is designed so additional distro backends can be added without changing the GUI or update model. See [Architecture](architecture.md) and [Getting started](getting-started.md).

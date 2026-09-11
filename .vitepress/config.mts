@@ -36,7 +36,7 @@ export default defineConfig({
     siteTitle: 'NativeDev',
 
     nav: [
-      { text: 'Guide', link: '/getting-started', activeMatch: '^/(getting-started|features)/?' },
+      { text: 'Guide', link: '/getting-started', activeMatch: '^/(why-nativedev|getting-started|features)/?' },
       { text: 'Reference', link: '/architecture', activeMatch: '^/(architecture|security|updating|uninstalling|troubleshooting)' },
       { text: 'FAQ', link: '/faq' },
       {
@@ -53,6 +53,7 @@ export default defineConfig({
         text: 'Getting Started',
         items: [
           { text: 'Introduction', link: '/' },
+          { text: 'Why NativeDev', link: '/why-nativedev' },
           { text: 'Installation & First Launch', link: '/getting-started' },
         ],
       },

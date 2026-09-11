@@ -20,7 +20,7 @@ GTK4 GUI / future CLI
           +-- NativeDevController -- serialized mutations + cross-manager reconciliation
           |        |
           |        +-- PhpManager ------------ APT / systemd / Multi-PHP
-          |        +-- LocalDevManager ------- wildcard DNS / park Nginx / mkcert
+          |        +-- LocalDevManager ------- HTTP/HTTPS park routing / DNS / mkcert
           |        +-- DeveloperToolManager -- persistent localhost Nginx tools
           |        +-- DatabaseAccessManager - local DB account / credentials
           |
@@ -47,7 +47,7 @@ Owns the cross-manager invariants that a single manager cannot enforce on its ow
 Each manager owns one functional area and talks to the system layer, never directly to `subprocess`:
 
 - **`PhpManager`** — System PHP detection, the one-way Multi-PHP migration, version install/uninstall, extensions, per-version FPM pools, and NativeDev's own INI override layer. See [PHP management](features/php.md).
-- **`LocalDevManager`** — the parked projects directory, wildcard `*.test` Nginx routing, NetworkManager DNS integration, and mkcert HTTPS. See [Local development](features/local-development.md).
+- **`LocalDevManager`** — the parked projects directory, HTTP `project.<TLD>` and optional HTTPS `project.secure.<TLD>` Nginx routing, NetworkManager DNS integration, and mkcert-based local TLS. See [Local development](features/local-development.md).
 - **`DeveloperToolManager`** — persistent `*.localhost` tools such as phpMyAdmin and Adminer, each bound to a PHP-FPM version. See [Developer tools](features/developer-tools.md).
 - **`DatabaseAccessManager`** — the NativeDev-managed local database account, its stored credential, and password change/reset flows. See [Services & databases](features/services-and-databases.md).
 - **`NodeManager`** — System Node detection, the one-way NVM migration, and NVM-managed Node versions. See [Node.js management](features/nodejs.md).

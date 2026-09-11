@@ -24,11 +24,27 @@ title: Troubleshooting
 
 **What to do:** if you actually want to remove this PHP version, uninstall the affected developer tool package(s) first (or accept that they will need reinstalling afterward), then uninstall the PHP version. Keeping the PHP version installed is the only way to keep the tool installed without touching it, since this dependency is set by the `.deb` packaging itself rather than by anything NativeDev can repoint.
 
-## "Install and start a PHP-FPM version before configuring wildcard *.test routing"
+## "Install and start a PHP-FPM version before configuring local wildcard routing"
 
-**What it means:** Local Development's wildcard router reconciliation ran and found zero installed PHP-FPM versions on the system. This typically shows up right after uninstalling the last remaining PHP version while wildcard `*.test` routing is already enabled.
+**What it means:** Local Development's wildcard router reconciliation ran and found zero installed PHP-FPM versions on the system. This typically shows up right after uninstalling the last remaining PHP version while NativeDev project routing is already enabled.
 
 **What to do:** install at least one PHP version from the PHP page, then retry whatever triggered the reconciliation (saving Local Development settings, or simply reopening the page). Existing project files and the parked directory are not affected by this error — only the Nginx routing step failed.
+
+
+## HTTPS opens a browser warning or says the certificate does not match
+
+First verify the hostname. NativeDev intentionally uses different local names for HTTP and HTTPS:
+
+```text
+HTTP   → http://example.test
+HTTPS  → https://example.secure.test
+```
+
+`https://example.test` is not the NativeDev HTTPS route and is not covered by the `*.secure.test` wildcard certificate. Open the project with **Open HTTPS** from the Projects page, or enter the `project.secure.<TLD>` address directly.
+
+If the hostname is correct but the browser still reports an untrusted issuer, open **Local development** and run **Trust local CA**. NativeDev requires `certutil` for the browser/NSS registration step; installing mkcert from **Services & tools** also installs Debian/Ubuntu's `libnss3-tools` package.
+
+If HTTPS has not been generated yet, the Projects page keeps **Open HTTPS** disabled until the `*.secure.<TLD>` certificate is ready.
 
 ## The Doctor page reports "no PHP-FPM runtime available"
 

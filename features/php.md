@@ -14,7 +14,7 @@ NativeDev manages PHP through two mutually exclusive models. It starts by detect
 ![PHP Package](/images/4.1.php-enable-system-or-multi.webp)
 
 
-- **System PHP** — NativeDev detects and uses your distribution's existing PHP-FPM installation for `*.test` sites through a separate per-user pool, without touching the distro's own `www` pool or repository configuration.
+- **System PHP** — NativeDev detects and uses your distribution's existing PHP-FPM installation for NativeDev project sites through a separate per-user pool, without touching the distro's own `www` pool or repository configuration.
 - **Multi-PHP** — an explicit, one-way **Enable Multi-PHP** migration for anyone who wants several PHP versions installed side by side. Once the distro-appropriate Multi-PHP repository is active, NativeDev stops offering System PHP as a second provider. The migration moves existing System PHP package names to the equivalent Multi-PHP candidates **in place**, rather than uninstalling first — this avoids unnecessarily removing reverse dependents such as Composer.
 
 Multi-PHP repository sources are chosen per distribution family:
@@ -34,7 +34,7 @@ Multi-PHP repository sources are chosen per distribution family:
 
 ## PHP-FPM pools
 
-NativeDev creates its own per-user PHP-FPM pool for each version used by `*.test` routing. Pool workers run as the logged-in developer, not as `www-data`, so file ownership matches what you'd expect from editing project files directly. The distribution/Multi-PHP `www` pool is never modified.
+NativeDev creates its own per-user PHP-FPM pool for each version used by Local Development routing. The same selected pool serves both `project.<TLD>` HTTP and `project.secure.<TLD>` HTTPS for a project. Pool workers run as the logged-in developer, not as `www-data`, so file ownership matches what you'd expect from editing project files directly. The distribution/Multi-PHP `www` pool is never modified.
 
 ## Extensions
 
