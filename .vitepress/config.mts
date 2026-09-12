@@ -88,7 +88,7 @@ export default defineConfig({
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/sayedsahin/nativedev-doc' },
+      { icon: 'github', link: 'https://github.com/sayedsahin/nativedev' },
     ],
 
     editLink: {

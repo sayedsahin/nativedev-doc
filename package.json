@@ -1,5 +1,5 @@
 {
-  "name": "nativedev-docs",
+  "name": "nativedev-doc",
   "version": "1.0.0",
   "description": "NativeDev documentation, built with VitePress",
   "type": "module",
